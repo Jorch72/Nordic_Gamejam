@@ -39,6 +39,9 @@ public class PlayerController : MonoBehaviour {
     private bool CheckRaycast() {
         RaycastHit hitInfo;
         if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hitInfo, interactRange, interactLayer)) {
+            Interactable iObj = hitInfo.collider.gameObject.GetComponent<Interactable>();
+            if (iObj == null) return false;
+
             uiController.SetCursorState(CursorState.INTERACT);
             if (Input.GetMouseButton(0)) {
                 return true;

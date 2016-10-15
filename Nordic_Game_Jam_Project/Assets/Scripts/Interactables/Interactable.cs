@@ -2,5 +2,12 @@
 using System.Collections;
 
 public class Interactable : MonoBehaviour {
-    public virtual void Interact() { }
+
+    public InteractComponent[] components;
+
+    public void Interact() {
+        foreach(InteractComponent c in components) {
+            c.Interact();
+        }
+    }
 }

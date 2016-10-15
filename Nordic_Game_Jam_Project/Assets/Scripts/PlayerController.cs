@@ -44,6 +44,7 @@ public class PlayerController : MonoBehaviour {
 
             uiController.SetCursorState(CursorState.INTERACT);
             if (Input.GetMouseButton(0)) {
+                iObj.Interact();
                 return true;
             }
 
